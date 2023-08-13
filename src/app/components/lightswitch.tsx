@@ -5,7 +5,17 @@ import { useEffect } from "react";
 
 export default function Lightswitch() {
 
-    useEffect(() => initStateFromLocalStorage(), []);
+    useEffect(() => {
+
+        function initStateFromLocalStorage() {
+            const lightsOn = !('lightsOn' in localStorage) ? false : localStorage.lightsOn === 'true'
+            const lightSwitchElement = document.getElementById('light-switch') as HTMLInputElement
+            lightSwitchElement.checked = lightsOn
+            setThemeState(lightsOn)
+        }
+
+        initStateFromLocalStorage()
+    }, []);
 
     function onChecked(evt: any) {
         const lightsOn = evt.target.checked
@@ -14,18 +24,11 @@ export default function Lightswitch() {
     }
 
     function setThemeState(lightsOn: boolean) {
-        if(lightsOn){
+        if (lightsOn) {
             document.documentElement.classList.remove('dark')
         } else {
             document.documentElement.classList.add('dark')
         }
-    }
-
-    function initStateFromLocalStorage() {
-        const lightsOn = !('lightsOn' in localStorage) ? false : localStorage.lightsOn === 'true'
-        const lightSwitchElement = document.getElementById('light-switch') as HTMLInputElement
-        lightSwitchElement.checked = lightsOn
-        setThemeState(lightsOn)
     }
 
     return (
