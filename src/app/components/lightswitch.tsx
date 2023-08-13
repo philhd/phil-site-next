@@ -9,13 +9,11 @@ export default function Lightswitch() {
 
     function onChecked(evt: any) {
         const lightsOn = evt.target.checked
-        console.log(`${lightsOn}`)
         localStorage.lightsOn = JSON.stringify(lightsOn)
         setThemeState(lightsOn)
     }
 
     function setThemeState(lightsOn: boolean) {
-        console.log(`setting lightsOn to ${lightsOn}`)
         if(lightsOn){
             document.documentElement.classList.remove('dark')
         } else {
@@ -25,7 +23,6 @@ export default function Lightswitch() {
 
     function initStateFromLocalStorage() {
         const lightsOn = !('lightsOn' in localStorage) ? false : localStorage.lightsOn === 'true'
-        console.log(`initializing lightsOn to ${lightsOn} from local storage`)
         const lightSwitchElement = document.getElementById('light-switch') as HTMLInputElement
         lightSwitchElement.checked = lightsOn
         setThemeState(lightsOn)
