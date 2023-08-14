@@ -1,3 +1,6 @@
+import Lightswitch from './components/lightswitch'
+import MenuItem from './components/menu-item'
+import NavMenu from './components/nav-menu'
 import './globals.css'
 import type { Metadata } from 'next'
 
@@ -13,7 +16,13 @@ export default function RootLayout({
 }) {
   return (
     <html className='dark' lang="en">
-      <body className='bg-white dark:bg-black text-black dark:text-white'>{children}</body>
+      <body className='bg-white dark:bg-black text-black dark:text-white'>
+        <Lightswitch />
+        <NavMenu>
+          <MenuItem name={'Blog'} href={'/blog'}></MenuItem>
+          <MenuItem name={'About'} href={'/about'}></MenuItem>
+        </NavMenu>
+        {children}</body>
     </html>
   )
 }

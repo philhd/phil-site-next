@@ -38,7 +38,7 @@ export default function Lightswitch() {
             <div>
                 <input type="checkbox" id="light-switch" name="light-switch" onChange={(evt) => onChecked(evt)} />
                 <label htmlFor="light-switch" aria-label="light-switch">
-                    <i className="fa-solid fa-lightbulb"></i>
+                    <i className="fa-solid fa-lightbulb p-2"></i>
                 </label>
             </div>
         </>
