@@ -22,7 +22,7 @@ If you're on Windows 10, you have to install it. But it's super easy to do:
 
 (Don't worry. I was wary of installing anything from Microsoft Store at first too, but it's legit.)
 
-Let's all enjoy this wonderful terminal redemption story from Microsoft, and try to forget about it's questionable past.`
+Let's all enjoy this wonderful terminal redemption story from Microsoft, and try to forget about its questionable past.`
 
     return (
         <ReactMarkdown>{markdown}</ReactMarkdown>
