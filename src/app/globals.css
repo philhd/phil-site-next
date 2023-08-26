@@ -5,19 +5,40 @@
 @layer base {
   html {
     font-family: "Andale mono", "Courier new", Helvetica, sans-serif;
-    font-size: 24px;
+    font-size: 18px;
     line-height: 1.5rem;
   }
 
   body {
-    padding: 1rem
+    padding: 1rem;
   }
 
   p {
-    line-height: 2rem;
+    line-height: 1.7rem;
+    margin-bottom: 1.3rem;
   }
 
   h1 {
-    font-size: 2rem
+    font-size: 1.9rem;
+    font-weight: 800;
+    line-height: 2.5rem;
+    margin-bottom: 1.3rem;
+  }
+
+  ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1rem;
+    margin-block-end: 1rem;
+    margin-inline-start: 0rem;
+    margin-inline-end: 0rem;
+    padding-inline-start: 3rem;
+    line-height: 1.8rem;
+  }
+
+  a {
+    color: rgb(17, 171, 171);
+    cursor: pointer;
+    text-decoration: underline;
   }
 }
