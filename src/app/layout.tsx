@@ -17,12 +17,15 @@ export default function RootLayout({
   return (
     <html className='dark' lang="en">
       <body className='bg-white dark:bg-black text-black dark:text-white'>
-        <Lightswitch />
         <NavMenu>
+          <Lightswitch />
           <MenuItem name={'Blog'} href={'/blog'}></MenuItem>
           <MenuItem name={'About'} href={'/about'}></MenuItem>
         </NavMenu>
-        {children}</body>
+        <div className='container'>
+          {children}
+        </div>
+      </body>
     </html>
   )
 }
