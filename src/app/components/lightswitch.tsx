@@ -1,26 +1,31 @@
 'use client'
 
 import Script from "next/script"
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function Lightswitch() {
 
-    useEffect(() => {
+    const [lightsOn, setLightsOn] = useState(!('lightsOn' in localStorage) ? false : localStorage.lightsOn === 'true')
 
+    useEffect(() => {
         function initStateFromLocalStorage() {
-            const lightsOn = !('lightsOn' in localStorage) ? false : localStorage.lightsOn === 'true'
-            const lightSwitchElement = document.getElementById('light-switch') as HTMLInputElement
-            lightSwitchElement.checked = lightsOn
             setThemeState(lightsOn)
         }
 
         initStateFromLocalStorage()
-    }, []);
+    }, [lightsOn]);
 
     function onChecked(evt: any) {
-        const lightsOn = evt.target.checked
+        setLightsOn(evt.target.checked)
         localStorage.lightsOn = JSON.stringify(lightsOn)
         setThemeState(lightsOn)
+    }
+
+    function onKeyPress(evt: any) {
+        const isEnterOrSpace = evt.keyCode === 32 || evt.keyCode === 13
+        if (isEnterOrSpace) {
+            setLightsOn(!lightsOn)
+        }
     }
 
     function setThemeState(lightsOn: boolean) {
@@ -35,8 +40,8 @@ export default function Lightswitch() {
         <>
             <Script src="https://kit.fontawesome.com/8b6d78f83d.js" crossOrigin="anonymous" />
 
-            <div>
-                <input type="checkbox" id="light-switch" name="light-switch" onChange={(evt) => onChecked(evt)} />
+            <div role="checkbox" aria-checked={lightsOn} tabIndex={0} onKeyUp={(evt) => onKeyPress(evt)}>
+                <input type="checkbox" className="hidden" id="light-switch" checked={lightsOn} name="light-switch" onChange={(evt) => onChecked(evt)} />
                 <label htmlFor="light-switch" aria-label="light-switch">
                     <i className="fa-solid fa-lightbulb p-2"></i>
                 </label>
