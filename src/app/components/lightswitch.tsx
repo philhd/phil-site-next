@@ -5,20 +5,29 @@ import { useEffect, useState } from "react";
 
 export default function Lightswitch() {
 
-    const [lightsOn, setLightsOn] = useState(!('lightsOn' in localStorage) ? false : localStorage.lightsOn === 'true')
+    const [lightsOn, setLightsOn] = useState(false)
 
     useEffect(() => {
         function initStateFromLocalStorage() {
-            setThemeState(lightsOn)
+            if (typeof window !== 'undefined' && 'lightsOn' in localStorage) {
+                const storedValue = localStorage.lightsOn === 'true'
+                setLightsOn(storedValue)
+                setThemeState(storedValue)
+            } else {
+                setThemeState(false)
+            }
         }
 
         initStateFromLocalStorage()
-    }, [lightsOn]);
+    }, []);
 
     function onChecked(evt: any) {
-        setLightsOn(evt.target.checked)
-        localStorage.lightsOn = JSON.stringify(lightsOn)
-        setThemeState(lightsOn)
+        const newValue = evt.target.checked
+        setLightsOn(newValue)
+        if (typeof window !== 'undefined') {
+            localStorage.lightsOn = JSON.stringify(newValue)
+        }
+        setThemeState(newValue)
     }
 
     function onKeyPress(evt: any) {
