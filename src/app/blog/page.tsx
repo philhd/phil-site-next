@@ -11,11 +11,11 @@ export default function Blog() {
             <div className="space-y-6">
                 {posts.map((post) => (
                     <article key={post.slug} className="border-b border-gray-200 dark:border-gray-700 pb-6">
-                        <div className="text-sm font-mono text-gray-500 dark:text-gray-400 mb-2 uppercase tracking-wide">
+                        <div className="text-sm font-monobold font-bold text-gray dark:text-gray mb-2 uppercase tracking-wide">
                             {post.date}
                         </div>
-                        <Link href={`/blog/${post.slug}`} className="block group">
-                            <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                        <Link href={`/blog/${post.slug}`} className="block group no-underline text-black dark:text-white">
+                            <h2 className="text-xl font-semibold transition-all">
                                 {post.title}
                             </h2>
                         </Link>

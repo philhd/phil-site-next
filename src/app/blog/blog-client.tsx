@@ -32,10 +32,10 @@ export default function BlogClient({ posts, selectedSlug }: BlogClientProps) {
                                         : 'hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300'
                                 }`}
                             >
-                                <div className="text-sm font-monobold font-extrabold text-gray dark:text-gray mb-1 uppercase tracking-wide">
+                                <div className="text-sm no-underline font-monobold text-gray dark:text-gray mb-1 uppercase tracking-wide">
                                     {post.date}
                                 </div>
-                                <div className="font-medium text-sm leading-tight">{post.title}</div>
+                                <div className="font-medium no-underline text-sm leading-tight">{post.title}</div>
                             </Link>
                         </li>
                     ))}
