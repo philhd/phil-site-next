@@ -19,6 +19,7 @@ export default function RootLayout({
       <body className='bg-white dark:bg-black text-black dark:text-white'>
         <NavMenu>
           <Lightswitch />
+          <MenuItem name={'Home'} href={'/'}></MenuItem>
           <MenuItem name={'Blog'} href={'/blog'}></MenuItem>
           <MenuItem name={'About'} href={'/about'}></MenuItem>
         </NavMenu>
