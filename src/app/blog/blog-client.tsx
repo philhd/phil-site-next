@@ -19,23 +19,23 @@ export default function BlogClient({ posts, selectedSlug }: BlogClientProps) {
     return (
         <div className="flex min-h-screen">
             {/* Left Pane - Post Index */}
-            <div className="hidden md:block md:w-1/3 bg-gray-50 dark:bg-gray-900 p-6 border-r border-gray-200 dark:border-gray-700">
+            <div className="hidden md:block md:w-1/3 p-6 border-r border-gray-300 dark:border-gray-700">
                 <h2 className="text-xl font-bold mb-4 text-gray-900 dark:text-gray-100">Posts</h2>
                 <ul className="space-y-3 list-none">
                     {posts.map((post) => (
                         <li key={post.slug}>
                             <Link
                                 href={`/blog/${post.slug}`}
-                                className={`block w-full text-left p-3 rounded-md transition-colors no-underline text-black dark:text-white ${
-                                    selectedPost?.slug === post.slug
-                                        ? 'bg-blue-100 dark:bg-blue-900 text-blue-900 dark:text-blue-100'
-                                        : 'hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300'
-                                }`}
+                                className='block w-full text-left p-3 rounded-md transition-colors no-underline text-black dark:text-white'
                             >
                                 <div className="text-sm font-monobold font-bold text-accent dark:text-accent mb-1 uppercase tracking-wide">
                                     {post.date}
                                 </div>
-                                <div className="font-medium text-sm leading-tight">{post.title}</div>
+                                <div className={`text-sm leading-tight  ${
+                                    selectedPost?.slug === post.slug
+                                        ? 'font-bold'
+                                        : 'font-medium'
+                                }`}>{post.title}</div>
                             </Link>
                         </li>
                     ))}
@@ -46,7 +46,7 @@ export default function BlogClient({ posts, selectedSlug }: BlogClientProps) {
             <div className="flex-1 p-8 max-w-4xl">
                 {selectedPost ? (
                     <div>
-                        <div className="mb-6 border-b border-gray-200 dark:border-gray-700 pb-4">
+                        <div className="mb-6 border-b border-gray-300 dark:border-gray-700 pb-4">
                             <div className="text-sm font-monobold font-extrabold text-accent dark:text-accent mb-2 uppercase tracking-wide">
                                 {selectedPost.date}
                             </div>

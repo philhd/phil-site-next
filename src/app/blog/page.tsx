@@ -10,7 +10,7 @@ export default function Blog() {
             <h1 className="text-3xl font-bold mb-8 text-gray-900 dark:text-gray-100">Posts</h1>
             <div className="space-y-6">
                 {posts.map((post) => (
-                    <article key={post.slug} className="border-b border-gray-200 dark:border-gray-700 pb-6">
+                    <article key={post.slug} className="border-b border-gray-300 dark:border-gray-700 pb-6">
                         <div className="text-sm font-monobold font-bold text-accent dark:text-accent mb-2 uppercase tracking-wide">
                             {post.date}
                         </div>
