@@ -9,10 +9,11 @@ module.exports = {
   theme: {
     colors: {
       white: 'rgb(251, 248, 241)',
-      black: 'rgb(19, 15, 23)'
+      black: 'rgb(19, 15, 23)',
+      gray: 'rgb(102, 102, 153)'
     },
     fontFamily: {
-      mono: ['Andale mono', 'Courier new'],
+      mono: [ 'Andale mono', 'Menlo', 'SF Mono', 'Courier new'],
       monobold: ['Menlo', 'SF Mono', 'Consolas', 'ui-monospace', 'monospace'],
       sans: ['Helvetica', 'sans-serif'],
       serif: ['Merriweather', 'serif'],

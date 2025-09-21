@@ -22,7 +22,7 @@ export default function RootLayout({
           <MenuItem name={'Blog'} href={'/blog'}></MenuItem>
           <MenuItem name={'About'} href={'/about'}></MenuItem>
         </NavMenu>
-        <div className='container'>
+        <div className='container font-sans'>
           {children}
         </div>
       </body>

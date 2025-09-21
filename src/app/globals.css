@@ -4,7 +4,7 @@
 
 @layer base {
   html {
-    font-family: "Andale mono", "Courier new", Helvetica, sans-serif;
+    font-family: "Andale mono", "Menlo", "SF Mono", "Courier new", Helvetica, sans-serif;
     font-size: 18px;
     line-height: 1.5rem;
   }
