@@ -18,11 +18,7 @@ Windows Terminal, Microsoft's replacement for the command line has actually been
 
 If you're on Windows 10, you have to install it. But it's super easy to do:
 
-[Download Windows Terminal from Microsoft Store](https://apps.microsoft.com/store/detail/windows-terminal/9N0DX20HK701)
-
-(Don't worry. I was wary of installing anything from Microsoft Store at first too, but it's legit.)
-
-Let's all enjoy this wonderful terminal redemption story from Microsoft, and try to forget about its questionable past.`
+[Download Windows Terminal from Microsoft Store](https://apps.microsoft.com/store/detail/windows-terminal/9N0DX20HK701)`
 
     return (
         <ReactMarkdown>{markdown}</ReactMarkdown>
