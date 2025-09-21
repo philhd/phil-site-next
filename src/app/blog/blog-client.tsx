@@ -16,7 +16,7 @@ export default function BlogClient({ posts }: BlogClientProps) {
             {/* Left Pane - Post Index */}
             <div className="w-1/4 bg-gray-50 dark:bg-gray-900 p-6 border-r border-gray-200 dark:border-gray-700">
                 <h2 className="text-xl font-bold mb-4 text-gray-900 dark:text-gray-100">Blog Posts</h2>
-                <ul className="space-y-3">
+                <ul className="space-y-3 list-none">
                     {posts.map((post) => (
                         <li key={post.slug}>
                             <button
@@ -30,7 +30,7 @@ export default function BlogClient({ posts }: BlogClientProps) {
                                 <div className="text-xs font-mono text-gray-400 dark:text-gray-500 mb-1 uppercase tracking-wide">
                                     {post.date}
                                 </div>
-                                <div className="font-medium text-sm leading-tight line-clamp-2">{post.title}</div>
+                                <div className="font-medium text-sm leading-tight">{post.title}</div>
                             </button>
                         </li>
                     ))}
