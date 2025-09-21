@@ -4,18 +4,19 @@ import BlogClient from '../blog-client'
 import { notFound } from 'next/navigation'
 
 interface PageProps {
-    params: { slug: string }
+    params: Promise<{ slug: string }>
 }
 
-export default function BlogPost({ params }: PageProps) {
+export default async function BlogPost({ params }: PageProps) {
+    const { slug } = await params
     const posts = getAllPosts()
-    const post = getPostBySlug(params.slug)
+    const post = getPostBySlug(slug)
 
     if (!post) {
         notFound()
     }
 
-    return <BlogClient posts={posts} selectedSlug={params.slug} />
+    return <BlogClient posts={posts} selectedSlug={slug} />
 }
 
 export async function generateStaticParams() {

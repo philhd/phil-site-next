@@ -1,3 +1,9 @@
+import fs from 'fs'
+import path from 'path'
+import matter from 'gray-matter'
+
+const projectsDirectory = path.join(process.cwd(), 'src/projects')
+
 export interface Project {
   id: string
   title: string
@@ -8,37 +14,35 @@ export interface Project {
 }
 
 export function getAllProjects(): Project[] {
-  const projects: Project[] = [
-    {
-      id: 'phil-site-next',
-      title: 'Personal Website (Next.js)',
-      description: 'A modern personal website built with Next.js, TypeScript, and Tailwind CSS. Features a responsive design, dark mode support, and a dynamic blog system powered by markdown files.',
-      github: 'https://github.com/username/phil-site-next',
-      featured: true
-    },
-    {
-      id: 'terminal-productivity',
-      title: 'Terminal Productivity Tools',
-      description: 'A collection of shell scripts and configurations to enhance developer productivity in the terminal. Includes custom aliases, functions, and workflow automations.',
-      github: 'https://github.com/username/terminal-tools',
-      featured: true
-    },
-    {
-      id: 'code-snippets',
-      title: 'Code Snippet Manager',
-      description: 'A command-line tool for managing and organizing code snippets across different programming languages. Built with Python and features syntax highlighting and search capabilities.',
-      github: 'https://github.com/username/snippet-manager'
-    },
-    {
-      id: 'api-wrapper',
-      title: 'REST API Wrapper Library',
-      description: 'A lightweight TypeScript library that simplifies API interactions with built-in error handling, request/response interceptors, and automatic retry logic.',
-      github: 'https://github.com/username/api-wrapper'
-    }
-  ]
+  // Get file names under /projects
+  const fileNames = fs.readdirSync(projectsDirectory)
 
-  return projects.sort((a, b) => {
-    // Featured projects first
+  const allProjectsData = fileNames
+    .filter(fileName => fileName.endsWith('.md'))
+    .map((fileName) => {
+      // Remove ".md" from file name to get id
+      const id = fileName.replace(/\.md$/, '')
+
+      // Read markdown file as string
+      const fullPath = path.join(projectsDirectory, fileName)
+      const fileContents = fs.readFileSync(fullPath, 'utf8')
+
+      // Use gray-matter to parse the project metadata section
+      const matterResult = matter(fileContents)
+
+      // Combine the data with the id
+      return {
+        id,
+        title: matterResult.data.title,
+        description: matterResult.content.trim(),
+        url: matterResult.data.url,
+        github: matterResult.data.github,
+        featured: matterResult.data.featured || false,
+      }
+    })
+
+  // Sort projects: featured first
+  return allProjectsData.sort((a, b) => {
     if (a.featured && !b.featured) return -1
     if (!a.featured && b.featured) return 1
     return 0
