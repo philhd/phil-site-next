@@ -2,14 +2,19 @@
 
 import React, { useState } from 'react'
 import ReactMarkdown from 'react-markdown'
+import Link from 'next/link'
 import { type Post } from '../../lib/posts'
 
 interface BlogClientProps {
     posts: Post[]
+    selectedSlug?: string
 }
 
-export default function BlogClient({ posts }: BlogClientProps) {
-    const [selectedPost, setSelectedPost] = useState<Post>(posts[0] || null)
+export default function BlogClient({ posts, selectedSlug }: BlogClientProps) {
+    const initialPost = selectedSlug
+        ? posts.find(post => post.slug === selectedSlug) || posts[0] || null
+        : posts[0] || null
+    const [selectedPost] = useState<Post>(initialPost)
 
     return (
         <div className="flex min-h-screen">
@@ -19,9 +24,9 @@ export default function BlogClient({ posts }: BlogClientProps) {
                 <ul className="space-y-3 list-none">
                     {posts.map((post) => (
                         <li key={post.slug}>
-                            <button
-                                onClick={() => setSelectedPost(post)}
-                                className={`w-full text-left p-3 rounded-md transition-colors ${
+                            <Link
+                                href={`/blog/${post.slug}`}
+                                className={`block w-full text-left p-3 rounded-md transition-colors ${
                                     selectedPost?.slug === post.slug
                                         ? 'bg-blue-100 dark:bg-blue-900 text-blue-900 dark:text-blue-100'
                                         : 'hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300'
@@ -31,7 +36,7 @@ export default function BlogClient({ posts }: BlogClientProps) {
                                     {post.date}
                                 </div>
                                 <div className="font-medium text-sm leading-tight">{post.title}</div>
-                            </button>
+                            </Link>
                         </li>
                     ))}
                 </ul>
