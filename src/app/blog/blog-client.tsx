@@ -14,7 +14,7 @@ export default function BlogClient({ posts }: BlogClientProps) {
     return (
         <div className="flex min-h-screen">
             {/* Left Pane - Post Index */}
-            <div className="w-1/3 bg-gray-50 dark:bg-gray-900 p-6 border-r border-gray-200 dark:border-gray-700">
+            <div className="hidden md:block md:w-1/3 bg-gray-50 dark:bg-gray-900 p-6 border-r border-gray-200 dark:border-gray-700">
                 <h2 className="text-xl font-bold mb-4 text-gray-900 dark:text-gray-100">Posts</h2>
                 <ul className="space-y-3 list-none">
                     {posts.map((post) => (
