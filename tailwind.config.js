@@ -13,6 +13,7 @@ module.exports = {
     },
     fontFamily: {
       mono: ['Andale mono', 'Courier new'],
+      monobold: ['Menlo', 'SF Mono', 'Consolas', 'ui-monospace', 'monospace'],
       sans: ['Helvetica', 'sans-serif'],
       serif: ['Merriweather', 'serif'],
     },

@@ -27,7 +27,7 @@ export default function BlogClient({ posts }: BlogClientProps) {
                                         : 'hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300'
                                 }`}
                             >
-                                <div className="text-xs font-mono text-gray-400 dark:text-gray-500 mb-1 uppercase tracking-wide">
+                                <div className="text-sm font-monobold font-extrabold text-gray-400 dark:text-gray-500 mb-1 uppercase tracking-wide">
                                     {post.date}
                                 </div>
                                 <div className="font-medium text-sm leading-tight">{post.title}</div>
@@ -42,7 +42,7 @@ export default function BlogClient({ posts }: BlogClientProps) {
                 {selectedPost ? (
                     <div>
                         <div className="mb-6 border-b border-gray-200 dark:border-gray-700 pb-4">
-                            <div className="text-sm font-mono text-gray-500 dark:text-gray-400 mb-2 uppercase tracking-wide">
+                            <div className="text-sm font-monobold font-extrabold text-gray-500 dark:text-gray-400 mb-2 uppercase tracking-wide">
                                 {selectedPost.date}
                             </div>
                             <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">
