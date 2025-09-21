@@ -12,6 +12,7 @@ export interface Project {
   github?: string
   featured?: boolean
   image?: string
+  sortIndex?: number
 }
 
 export function getAllProjects(): Project[] {
@@ -40,13 +41,24 @@ export function getAllProjects(): Project[] {
         github: matterResult.data.github,
         featured: matterResult.data.featured || false,
         image: matterResult.data.image,
+        sortIndex: matterResult.data.sortIndex,
       }
     })
 
-  // Sort projects: featured first
+  // Sort projects by sortIndex, then by featured status
   return allProjectsData.sort((a, b) => {
+    // Primary sort: by sortIndex (lower numbers first)
+    const aSortIndex = a.sortIndex ?? 999
+    const bSortIndex = b.sortIndex ?? 999
+
+    if (aSortIndex !== bSortIndex) {
+      return aSortIndex - bSortIndex
+    }
+
+    // Secondary sort: featured first (for projects with same sortIndex)
     if (a.featured && !b.featured) return -1
     if (!a.featured && b.featured) return 1
+
     return 0
   })
 }
