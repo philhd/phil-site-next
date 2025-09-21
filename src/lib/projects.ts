@@ -11,6 +11,7 @@ export interface Project {
   url?: string
   github?: string
   featured?: boolean
+  image?: string
 }
 
 export function getAllProjects(): Project[] {
@@ -38,6 +39,7 @@ export function getAllProjects(): Project[] {
         url: matterResult.data.url,
         github: matterResult.data.github,
         featured: matterResult.data.featured || false,
+        image: matterResult.data.image,
       }
     })
 
