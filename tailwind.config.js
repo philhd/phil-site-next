@@ -10,7 +10,7 @@ module.exports = {
     colors: {
       white: 'rgb(251, 248, 241)',
       black: 'rgb(19, 15, 23)',
-      gray: 'rgb(102, 102, 153)'
+      accent: 'rgb(102, 102, 153)'
     },
     fontFamily: {
       mono: [ 'Andale mono', 'Menlo', 'SF Mono', 'Courier new'],

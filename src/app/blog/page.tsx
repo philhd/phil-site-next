@@ -11,7 +11,7 @@ export default function Blog() {
             <div className="space-y-6">
                 {posts.map((post) => (
                     <article key={post.slug} className="border-b border-gray-200 dark:border-gray-700 pb-6">
-                        <div className="text-sm font-monobold font-bold text-gray dark:text-gray mb-2 uppercase tracking-wide">
+                        <div className="text-sm font-monobold font-bold text-accent dark:text-accent mb-2 uppercase tracking-wide">
                             {post.date}
                         </div>
                         <Link href={`/blog/${post.slug}`} className="block group no-underline text-black dark:text-white">
