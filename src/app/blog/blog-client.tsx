@@ -14,9 +14,9 @@ export default function BlogClient({ posts }: BlogClientProps) {
     return (
         <div className="flex min-h-screen">
             {/* Left Pane - Post Index */}
-            <div className="w-1/3 bg-gray-50 dark:bg-gray-900 p-6 border-r border-gray-200 dark:border-gray-700">
+            <div className="w-1/4 bg-gray-50 dark:bg-gray-900 p-6 border-r border-gray-200 dark:border-gray-700">
                 <h2 className="text-xl font-bold mb-4 text-gray-900 dark:text-gray-100">Blog Posts</h2>
-                <ul className="space-y-2">
+                <ul className="space-y-3">
                     {posts.map((post) => (
                         <li key={post.slug}>
                             <button
@@ -27,8 +27,10 @@ export default function BlogClient({ posts }: BlogClientProps) {
                                         : 'hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300'
                                 }`}
                             >
-                                <div className="font-medium">{post.title}</div>
-                                <div className="text-sm text-gray-500 dark:text-gray-400">{post.date}</div>
+                                <div className="text-xs font-mono text-gray-400 dark:text-gray-500 mb-1 uppercase tracking-wide">
+                                    {post.date}
+                                </div>
+                                <div className="font-medium text-sm leading-tight line-clamp-2">{post.title}</div>
                             </button>
                         </li>
                     ))}
@@ -36,10 +38,20 @@ export default function BlogClient({ posts }: BlogClientProps) {
             </div>
 
             {/* Right Pane - Post Content */}
-            <div className="flex-1 p-6">
+            <div className="flex-1 p-8 max-w-4xl">
                 {selectedPost ? (
-                    <div className="prose dark:prose-invert max-w-none">
-                        <ReactMarkdown>{selectedPost.content}</ReactMarkdown>
+                    <div>
+                        <div className="mb-6 border-b border-gray-200 dark:border-gray-700 pb-4">
+                            <div className="text-sm font-mono text-gray-500 dark:text-gray-400 mb-2 uppercase tracking-wide">
+                                {selectedPost.date}
+                            </div>
+                            <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">
+                                {selectedPost.title}
+                            </h1>
+                        </div>
+                        <div className="prose dark:prose-invert max-w-none">
+                            <ReactMarkdown>{selectedPost.content}</ReactMarkdown>
+                        </div>
                     </div>
                 ) : (
                     <div className="text-gray-500 dark:text-gray-400">Select a post to read</div>
