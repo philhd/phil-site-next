@@ -42,7 +42,7 @@ export default function Home() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Live Demo →
+                  Visit site →
                 </Link>
               )}
             </div>
