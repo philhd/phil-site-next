@@ -1,6 +1,5 @@
 ---
 title: "colorful loops"
-featured: true
 url: "https://colorful-loops.vercel.app/"
 image: "/images/projects/colorful-loops.png"
 sortIndex: 1

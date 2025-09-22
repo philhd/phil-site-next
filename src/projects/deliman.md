@@ -1,6 +1,5 @@
 ---
 title: "Deli Manager Showdown"
-featured: false
 image: "/images/projects/deliman.png"
 github: "https://github.com/philhd/deliman"
 url: "https://deliman-site.vercel.app/"

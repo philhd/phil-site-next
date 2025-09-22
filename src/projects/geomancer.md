@@ -1,6 +1,5 @@
 ---
 title: "Geomancer"
-featured: false
 image: "/images/projects/geomancer.png"
 github: "https://github.com/philhd/geomancer"
 url: "https://geomancer-game.vercel.app/"

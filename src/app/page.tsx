@@ -14,15 +14,10 @@ export default function Home() {
           <article key={project.id} className="border-b border-gray-300 dark:border-gray-700 pb-8">
             {/* Mobile layout - Stack vertically */}
             <div className="block md:hidden">
-              <div className="flex items-center gap-2 mb-3">
+              <div className="mb-3">
                 <h2 className="text-xl font-semibold text-black dark:text-white">
                   {project.title}
                 </h2>
-                {project.featured && (
-                  <span className="text-xs font-monobold font-bold text-accent dark:text-accent uppercase tracking-wide px-2 py-1 rounded bg-accent/10">
-                    Featured
-                  </span>
-                )}
               </div>
 
               {/* Image between title and description on mobile */}
@@ -69,15 +64,10 @@ export default function Home() {
             <div className={`hidden md:flex gap-6 ${project.image ? 'items-start' : 'items-center'}`}>
               {/* Left side - Content */}
               <div className="flex-1">
-                <div className="flex items-center gap-2 mb-3">
+                <div className="mb-3">
                   <h2 className="text-xl font-semibold text-black dark:text-white">
                     {project.title}
                   </h2>
-                  {project.featured && (
-                    <span className="text-xs font-monobold font-bold text-accent dark:text-accent uppercase tracking-wide px-2 py-1 rounded bg-accent/10">
-                      Featured
-                    </span>
-                  )}
                 </div>
                 <p className="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
                   {project.description}

@@ -1,6 +1,5 @@
 ---
 title: "Feng Shui"
-featured: false
 image: "/images/projects/feng-shui.png"
 github: "https://github.com/philhd/feng-shui"
 sortIndex: 6
