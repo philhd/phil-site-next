@@ -1,26 +1,27 @@
-'use client'
-
 import React from 'react'
-import ReactMarkdown from 'react-markdown'
-import ReactDom from 'react-dom'
+import Link from 'next/link'
+import { getAllPosts } from '../../lib/posts'
 
 export default function Blog() {
-    const markdown = `# Upgrade your terminal: Part I - Start using Windows Terminal
-
-If you've ever used the classic command line in Windows, or even Windows PowerShell, you know how bad terminals can get. Ugly colors, weird block cursors, no normal copy/paste, impossible to resize, that thing where if you click inside the window while something is running it pauses the execution 😡. Everyone has been waiting for a better terminal for a long time, and guess what, that time has arrived. Actually, it arrived over 3 years ago. You just may not know it yet.
-
-Windows Terminal, Microsoft's replacement for the command line has actually been released for several years now. It even comes standard on Windows 11! But I don't think it's been well publicized. I discovered it by stumbling upon some blog post, but many of the people I tell about it had never heard of it before. Here are just a few of the nice things about it:
-
-- Tabs that can be cmd or PowerShell
-- Customizable styles (colors, font size, font, etc.)
-- Large scroll buffer
-- It behaves the way you would expect a terminal to behave
-
-If you're on Windows 10, you have to install it. But it's super easy to do:
-
-[Download Windows Terminal from Microsoft Store](https://apps.microsoft.com/store/detail/windows-terminal/9N0DX20HK701)`
+    const posts = getAllPosts()
 
     return (
-        <ReactMarkdown>{markdown}</ReactMarkdown>
+        <div className="max-w-4xl mx-auto p-6">
+            <h1 className="text-3xl font-bold mb-8 text-gray-900 dark:text-gray-100">Posts</h1>
+            <div className="space-y-6">
+                {posts.map((post) => (
+                    <article key={post.slug} className="border-b border-gray-300 dark:border-gray-700 pb-6">
+                        <div className="text-sm font-monobold font-bold text-accent dark:text-accent mb-2 uppercase tracking-wide">
+                            {post.date}
+                        </div>
+                        <Link href={`/blog/${post.slug}`} className="block group no-underline text-black dark:text-white">
+                            <h2 className="text-xl font-semibold transition-all">
+                                {post.title}
+                            </h2>
+                        </Link>
+                    </article>
+                ))}
+            </div>
+        </div>
     )
 }
