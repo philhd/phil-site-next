@@ -27,7 +27,8 @@ module.exports = {
       colors: {
         white: 'rgb(251, 248, 241)',
         black: 'rgb(19, 15, 23)',
-        accent: 'rgb(102, 102, 153)'
+        accent: 'rgb(102, 102, 153)',
+        'accent-dark': 'rgb(153, 153, 204)'
       }
     },
   },

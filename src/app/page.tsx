@@ -40,7 +40,7 @@ export default function Home() {
                 {project.github && (
                   <Link
                     href={project.github}
-                    className="text-accent hover:[text-shadow:0_0_0.5px_currentColor] transition-all no-underline"
+                    className="text-accent dark:text-accent-dark hover:[text-shadow:0_0_0.5px_currentColor] transition-all no-underline"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -50,7 +50,7 @@ export default function Home() {
                 {project.url && (
                   <Link
                     href={project.url}
-                    className="text-accent hover:[text-shadow:0_0_0.5px_currentColor] transition-all no-underline"
+                    className="text-accent dark:text-accent-dark hover:[text-shadow:0_0_0.5px_currentColor] transition-all no-underline"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -76,7 +76,7 @@ export default function Home() {
                   {project.github && (
                     <Link
                       href={project.github}
-                      className="text-accent hover:[text-shadow:0_0_0.5px_currentColor] transition-all no-underline"
+                      className="text-accent dark:text-accent-dark hover:[text-shadow:0_0_0.5px_currentColor] transition-all no-underline"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -86,7 +86,7 @@ export default function Home() {
                   {project.url && (
                     <Link
                       href={project.url}
-                      className="text-accent hover:[text-shadow:0_0_0.5px_currentColor] transition-all no-underline"
+                      className="text-accent dark:text-accent-dark hover:[text-shadow:0_0_0.5px_currentColor] transition-all no-underline"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
