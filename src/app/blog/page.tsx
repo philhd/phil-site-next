@@ -11,14 +11,14 @@ export default function Blog() {
             <div className="space-y-6">
                 {posts.map((post) => (
                     <article key={post.slug} className="border-b border-gray-300 dark:border-gray-700 pb-6">
-                        <div className="text-sm font-monobold font-medium text-accent dark:text-accent-dark mb-2 uppercase tracking-wide">
-                            {post.date}
-                        </div>
                         <Link href={`/blog/${post.slug}`} className="block group no-underline text-black dark:text-white">
-                            <h2 className="text-xl font-normal hover:[text-shadow:0_0_0.5px_currentColor] transition-all">
+                            <h2 className="text-xl font-normal hover:[text-shadow:0_0_0.5px_currentColor] transition-all mb-2">
                                 {post.title}
                             </h2>
                         </Link>
+                        <div className="text-sm font-monobold font-medium text-accent dark:text-accent-dark uppercase tracking-wide">
+                            {post.date}
+                        </div>
                     </article>
                 ))}
             </div>

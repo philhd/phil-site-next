@@ -28,14 +28,14 @@ export default function BlogClient({ posts, selectedSlug }: BlogClientProps) {
                                 href={`/blog/${post.slug}`}
                                 className='block w-full text-left p-3 rounded-md transition-colors no-underline text-black dark:text-white'
                             >
-                                <div className="text-sm font-monobold font-medium text-accent dark:text-accent-dark mb-1 uppercase tracking-wide">
-                                    {post.date}
-                                </div>
-                                <div className={`text-sm leading-tight  ${
+                                <div className={`text-sm leading-tight mb-1  ${
                                     selectedPost?.slug === post.slug
                                         ? 'font-bold'
                                         : 'font-medium'
                                 }`}>{post.title}</div>
+                                <div className="text-sm font-monobold font-medium text-accent dark:text-accent-dark uppercase tracking-wide">
+                                    {post.date}
+                                </div>
                             </Link>
                         </li>
                     ))}
@@ -47,12 +47,12 @@ export default function BlogClient({ posts, selectedSlug }: BlogClientProps) {
                 {selectedPost ? (
                     <div>
                         <div className="mb-6 border-b border-gray-300 dark:border-gray-700 pb-4">
-                            <div className="text-sm font-monobold font-medium text-accent dark:text-accent-dark mb-2 uppercase tracking-wide">
-                                {selectedPost.date}
-                            </div>
-                            <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">
+                            <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">
                                 {selectedPost.title}
                             </h1>
+                            <div className="text-sm font-monobold font-medium text-accent dark:text-accent-dark uppercase tracking-wide">
+                                {selectedPost.date}
+                            </div>
                         </div>
                         <div className="prose dark:prose-invert max-w-none">
                             <ReactMarkdown>{selectedPost.content}</ReactMarkdown>
