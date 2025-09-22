@@ -23,13 +23,29 @@ export default function Home() {
               {/* Image between title and description on mobile */}
               {project.image && (
                 <div className="mb-4">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    width={200}
-                    height={150}
-                    className="rounded-lg object-cover w-full max-w-sm"
-                  />
+                  {(project.url || project.github) ? (
+                    <Link
+                      href={project.url || project.github!}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        width={200}
+                        height={150}
+                        className="rounded-lg object-cover w-full max-w-sm cursor-pointer hover:opacity-80 transition-opacity"
+                      />
+                    </Link>
+                  ) : (
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      width={200}
+                      height={150}
+                      className="rounded-lg object-cover w-full max-w-sm"
+                    />
+                  )}
                 </div>
               )}
 
@@ -99,13 +115,29 @@ export default function Home() {
               {/* Right side - Image */}
               {project.image && (
                 <div className="flex-shrink-0">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    width={200}
-                    height={150}
-                    className="rounded-lg object-cover"
-                  />
+                  {(project.url || project.github) ? (
+                    <Link
+                      href={project.url || project.github!}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        width={200}
+                        height={150}
+                        className="rounded-lg object-cover cursor-pointer hover:opacity-80 transition-opacity"
+                      />
+                    </Link>
+                  ) : (
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      width={200}
+                      height={150}
+                      className="rounded-lg object-cover"
+                    />
+                  )}
                 </div>
               )}
             </div>
