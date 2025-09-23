@@ -43,7 +43,7 @@ export default function BlogClient({ posts, selectedSlug }: BlogClientProps) {
             </div>
 
             {/* Right Pane - Post Content */}
-            <div className="flex-1 p-8 max-w-4xl">
+            <div className="flex-1 p-4 sm:p-8 max-w-4xl">
                 {selectedPost ? (
                     <div>
                         <div className="mb-6 border-b border-gray-300 dark:border-gray-700 pb-4">
